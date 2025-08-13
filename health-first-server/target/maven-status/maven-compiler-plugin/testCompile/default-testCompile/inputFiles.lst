@@ -1,0 +1,7 @@
+/home/ttpl-lnve15-0180/SessionTask/java-node-ai-suit-34/health-first-server/src/test/java/com/healthfirst/server/security/JwtServiceTest.java
+/home/ttpl-lnve15-0180/SessionTask/java-node-ai-suit-34/health-first-server/src/test/java/com/healthfirst/server/service/AuthServiceImplTest.java
+/home/ttpl-lnve15-0180/SessionTask/java-node-ai-suit-34/health-first-server/src/test/java/com/healthfirst/server/service/PatientAuthServiceImplTest.java
+/home/ttpl-lnve15-0180/SessionTask/java-node-ai-suit-34/health-first-server/src/test/java/com/healthfirst/server/service/PatientServiceImplTest.java
+/home/ttpl-lnve15-0180/SessionTask/java-node-ai-suit-34/health-first-server/src/test/java/com/healthfirst/server/service/ProviderServiceImplTest.java
+/home/ttpl-lnve15-0180/SessionTask/java-node-ai-suit-34/health-first-server/src/test/java/com/healthfirst/server/validation/PatientRegisterRequestValidationTest.java
+/home/ttpl-lnve15-0180/SessionTask/java-node-ai-suit-34/health-first-server/src/test/java/com/healthfirst/server/validation/ProviderRegistrationRequestValidationTest.java

@@ -1,0 +1,7 @@
+com/healthfirst/server/service/ProviderServiceImplTest.class
+com/healthfirst/server/service/PatientServiceImplTest.class
+com/healthfirst/server/security/JwtServiceTest.class
+com/healthfirst/server/service/AuthServiceImplTest.class
+com/healthfirst/server/service/PatientAuthServiceImplTest.class
+com/healthfirst/server/validation/ProviderRegistrationRequestValidationTest.class
+com/healthfirst/server/validation/PatientRegisterRequestValidationTest.class

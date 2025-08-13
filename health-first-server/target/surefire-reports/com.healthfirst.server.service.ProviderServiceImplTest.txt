@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.healthfirst.server.service.ProviderServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.018 s -- in com.healthfirst.server.service.ProviderServiceImplTest

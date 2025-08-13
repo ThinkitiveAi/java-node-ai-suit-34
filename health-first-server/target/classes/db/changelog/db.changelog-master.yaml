@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-provider-availability
+      author: Prathamesh
+      changes:
+        - createTable:
+            tableName: provider_availability
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true, nullable: false } }
+              - column: { name: provider_id, type: UUID, constraints: { nullable: false } }
+              - column: { name: date, type: DATE, constraints: { nullable: false } }
+              - column: { name: start_time, type: TIME, constraints: { nullable: false } }
+              - column: { name: end_time, type: TIME, constraints: { nullable: false } }
+              - column: { name: timezone, type: VARCHAR(100), constraints: { nullable: false } }
+              - column: { name: is_recurring, type: BOOLEAN, defaultValueBoolean: false }
+              - column: { name: recurrence_pattern, type: VARCHAR(20) }
+              - column: { name: recurrence_end_date, type: DATE }
+              - column: { name: slot_duration, type: INT, defaultValueNumeric: 30 }
+              - column: { name: break_duration, type: INT, defaultValueNumeric: 0 }
+              - column: { name: status, type: VARCHAR(20), defaultValue: 'available' }
+              - column: { name: max_appointments_per_slot, type: INT, defaultValueNumeric: 1 }
+              - column: { name: current_appointments, type: INT, defaultValueNumeric: 0 }
+              - column: { name: appointment_type, type: VARCHAR(30), defaultValue: 'consultation' }
+              - column: { name: location_type, type: VARCHAR(30) }
+              - column: { name: location_address, type: TEXT }
+              - column: { name: location_room_number, type: VARCHAR(50) }
+              - column: { name: base_fee, type: "DECIMAL(10,2)" }
+              - column: { name: insurance_accepted, type: BOOLEAN }
+              - column: { name: currency, type: VARCHAR(10), defaultValue: 'USD' }
+              - column: { name: notes, type: TEXT }
+              - column: { name: special_requirements, type: TEXT }
+              - column: { name: created_at, type: TIMESTAMP, defaultValueComputed: CURRENT_TIMESTAMP }
+              - column: { name: updated_at, type: TIMESTAMP }
+
+  - changeSet:
+      id: 002-create-appointment-slots
+      author: Prathamesh
+      changes:
+        - createTable:
+            tableName: appointment_slots
+            columns:
+              - column: { name: id, type: UUID, constraints: { primaryKey: true, nullable: false } }
+              - column: { name: availability_id, type: UUID, constraints: { nullable: false } }
+              - column: { name: provider_id, type: UUID, constraints: { nullable: false } }
+              - column: { name: slot_start_time, type: "TIMESTAMP WITH TIME ZONE", constraints: { nullable: false } }
+              - column: { name: slot_end_time, type: "TIMESTAMP WITH TIME ZONE", constraints: { nullable: false } }
+              - column: { name: status, type: VARCHAR(20), defaultValue: 'available' }
+              - column: { name: patient_id, type: UUID }
+              - column: { name: appointment_type, type: VARCHAR(30) }
+              - column: { name: booking_reference, type: VARCHAR(100) }
+        - addUniqueConstraint:
+            tableName: appointment_slots
+            columnNames: booking_reference
+            constraintName: uk_booking_reference
+        - addForeignKeyConstraint:
+            baseTableName: appointment_slots
+            baseColumnNames: availability_id
+            referencedTableName: provider_availability
+            referencedColumnNames: id
+            constraintName: fk_slots_availability
